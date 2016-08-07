@@ -1,4 +1,4 @@
-#!/opt/rh/python33/root/usr/bin/python3
+#!/bin/python3
 
 from http.server import BaseHTTPRequestHandler,HTTPServer
 import cgi
@@ -21,7 +21,7 @@ class RequestHandler(BaseHTTPRequestHandler):
                         data = form['file'].file.read()
                         open("/tmp/%s"%filename, "wb").write(data)
                         print("uploaded %s"%filename)
-                       self.send_response(200)
+                        self.send_response(200)
                         self.send_header("Content-type", self.headers['Content-Type'].encode())
                         self.end_headers()
                 else:
